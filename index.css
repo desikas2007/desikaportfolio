@@ -1,0 +1,23 @@
+/* Reset */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+}
+
+
+body {
+background: #ffb3dd; /* FULL solid pink */
+color: #ff0d8a;
+overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-thumb {
+background: #ff82c7;
+border-radius: 20px;
+}
