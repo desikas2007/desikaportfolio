@@ -1,47 +1,143 @@
-import React from "react";
-import "../styles/theme.css";
-import "../styles/About.css";
-import cuteImg from "../assets/aboutimg.jpeg"; // change name if needed
+/* FULL SCREEN FIXED PAGE (NO SCROLL) */
+.about-page {
+  width: 100%;
+  height: 100vh;       /* FIXED HEIGHT */
+  overflow: hidden;    /* STOP MOVING/SROLLING */
+  background: pink;
+  position: relative;
+  padding-top: 90px;
+}
 
-export default function About() {
-  return (
-    <div className="about-page">
-      {/* Header fixed */}
-      <header className="main-header">
-        <h2 className="logo">DESIKA SEKAR</h2>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/projects">Projects</a>
-          <a href="/contact">Contact</a>
-        </nav>
-      </header>
+/* HEADER */
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 40px;
+  background: rgb(255, 105, 160);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(255, 0, 100, 0.3);
+}
 
-      {/* Content Section */}
-      <div className="about-container">
-        {/* LEFT SIDE IMAGE */}
-        <div className="about-left">
-          <img src={cuteImg} alt="About" className="about-img" />
-        </div>
+.main-header .logo {
+  font-size: 26px;
+  color: white;
+  font-weight: bold;
+}
 
-        {/* RIGHT SIDE TEXT */}
-        <div className="about-right fade-in-text">
-          <h1 className="about-title">About Me</h1>
-          <p>
-            Hello! I’m <b>Desika Sekar</b>, a passionate  
-            <span className="highlight"> Full Stack Developer </span>  
-            and cute aesthetic web designer.
-          </p>
-          <p>
-            My goal is to build digital experiences
-            that are visually engaging, fast, and user-focused.
-            I specialize in transforming ideas into functional web interfaces
-            using strong design sense, responsive layouts, and modern UI/UX
-            principles. I focus on pixel-perfect design, animations, and
-            brand-aligned aesthetics. 
-          </p>
-        </div>
-      </div>
-    </div>
-  );
+.main-header nav a {
+  margin-left: 25px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* CONTENT FIXED CENTER */
+.about-container {
+  width: 100%;
+  height: calc(100vh - 100px); /* stays fixed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50px;
+  gap: 60px;
+}
+
+/* LEFT SIDE IMAGE */
+.about-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-img {
+  width: 350px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(255, 0, 150, 0.4);
+}
+
+/* RIGHT SIDE TEXT */
+.about-right {
+  flex: 1;
+  color: white;
+}
+
+/* ANIMATION — ABOUT ME MOVING TEXT */
+.fade-in-text {
+  animation: fadeUp 1.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ⭐ UPDATED STYLISH ANIMATED ABOUT ME TITLE ⭐ */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.about-title {
+  font-size: 55px;
+  margin-bottom: 15px;
+  font-family: "Pacifico", cursive !important;
+  color: white;
+
+  text-shadow: 
+    0 0 10px rgba(255, 0, 140, 0.8),
+    0 0 20px rgba(255, 0, 160, 0.6),
+    0 0 35px rgba(255, 0, 200, 0.4);
+
+  animation: glow 2.5s ease-in-out infinite alternate,
+             wave 3s ease-in-out infinite;
+}
+
+/* Glow effect */
+@keyframes glow {
+  0% {
+    text-shadow:
+      0 0 5px rgba(255, 0, 160, 0.5),
+      0 0 15px rgba(255, 0, 160, 0.6),
+      0 0 25px rgba(255, 0, 200, 0.5);
+  }
+  100% {
+    text-shadow:
+      0 0 15px rgba(255, 0, 180, 1),
+      0 0 30px rgba(255, 0, 200, 0.9),
+      0 0 45px rgba(255, 100, 220, 0.8);
+  }
+}
+
+/* Wave animation */
+@keyframes wave {
+  0% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+}
+
+.about-right p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.highlight {
+  color: rgb(255, 0, 140);
+  font-weight: bold;
 }
