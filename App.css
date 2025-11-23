@@ -1,0 +1,65 @@
+/* Navigation */
+.navbar {
+width: 100%;
+padding: 20px;
+display: flex;
+justify-content: center;
+gap: 40px;
+background: #ff9ad5;
+backdrop-filter: blur(10px);
+position: fixed;
+top: 0;
+left: 0;
+z-index: 999;
+box-shadow: 0 4px 12px rgba(255, 82, 170, 0.3);
+}
+
+
+.navbar a {
+text-decoration: none;
+color: #ff2f9f;
+font-size: 18px;
+font-weight: 600;
+transition: 0.3s;
+}
+.navbar a:hover {
+color: #ff73c4;
+transform: scale(1.1);
+}
+
+
+/* Page Container */
+.page {
+padding-top: 120px;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+
+.page h1 {
+color: #ff0d8a;
+font-size: 48px;
+margin-bottom: 20px;
+text-shadow: 0 4px 10px rgba(255, 0, 140, 0.3);
+}
+
+
+.cute-card {
+width: 80%;
+max-width: 800px;
+padding: 30px;
+border-radius: 25px;
+background: #ff87c8;
+box-shadow: 0 6px 20px rgba(255, 92, 168, 0.25);
+border: 2px solid #ff9bd7;
+}
+
+
+.cute-card img {
+width: 100%;
+border-radius: 20px;
+margin-top: 15px;
+}
