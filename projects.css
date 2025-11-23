@@ -1,0 +1,201 @@
+/* ---------- FULL FIXED PAGE ---------- */
+.projects-page {
+  width: 100%;
+  height: 100vh;
+  background: #ffb3dd; /* full kawaii pink */
+  padding-top: 120px;
+  overflow: hidden;
+}
+
+/* ---------- HEADER ---------- */
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 40px;
+  background: #ff8fcf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(255, 0, 100, 0.3);
+  border-bottom: 1px solid #ff4fae;
+}
+
+.main-header .logo {
+  font-size: 26px;
+  color: white;
+  font-weight: bold;
+}
+
+.main-header nav a {
+  margin-left: 25px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.main-header nav a:hover {
+  color: #ffe6f0;
+  text-shadow: 0 0 10px #ff3fa5;
+}
+
+/* ---------- ANIMATED TITLE ---------- */
+.projects-title {
+  text-align: center;
+  font-size: 55px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, #ff007a, #ff4fae, #ff00cc);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s ease infinite, glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 10px #ff4fae; }
+  50% { text-shadow: 0 0 25px #ff00cc; }
+  100% { text-shadow: 0 0 10px #ff007a; }
+}
+
+/* ---------- PROJECT ROW ---------- */
+.projects-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 60px;
+  flex-wrap: wrap;
+}
+
+/* ---------- PROJECT CARD ---------- */
+.project-card {
+  width: 30%;
+  height: 400px;
+  perspective: 1200px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.project-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* ---------- FRONT CARD ---------- */
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(255, 0, 150, 0.25);
+}
+
+/* Front image covers full card */
+.front-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* now it fully covers the card */
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Overlay text at bottom */
+.front-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 0, 150, 0.35); /* semi-transparent pink overlay */
+  padding: 15px;
+  text-align: center;
+  z-index: 2;
+}
+
+.front-text h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+.front-text .project-desc {
+  font-size: 16px;
+  color: #ffe6f0;
+  margin-bottom: 5px;
+}
+
+/* ---------- BACK CARD ---------- */
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Back image fully covers back card */
+.back-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills entire back card */
+  border-radius: 25px;
+}
+
+/* Overlay Visit Link on bottom of back card */
+.github-btn {
+  position: absolute;
+  bottom: 15px;
+  text-decoration: none;
+  background: #ff2f99;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 6px 15px rgba(255, 0, 150, 0.3);
+  transition: 0.3s;
+}
+
+.github-btn:hover {
+  background: white;
+  color: #ff007f;
+  transform: scale(1.1);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .projects-row {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .project-card {
+    width: 90%;
+    height: 350px;
+  }
+}
